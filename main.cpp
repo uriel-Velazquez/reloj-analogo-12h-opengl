@@ -14,9 +14,9 @@ void tiempo(int param)
 
 void iniciar()
 {
-	glClearColor(0, 0.3, 0.5, 1); // R,G,B,opacidad
+	glClearColor(0, 0.20, 0.50, 1); // R,G,B,opacidad
 	
-	glLineWidth(5.f);
+	glLineWidth(3.f);
 	glPointSize(8);
 	
 	glOrtho(800, 0, 600, 0, -1, 1);
@@ -142,26 +142,26 @@ void dibujar()
 	//Segundos
 	glPushMatrix();
 	glRotated(segundos, 0, 0, 1);
-	glColor3f(1,0,0);
+	glColor3f(0.255,0.51,0.360);
 	
 	glBegin(GL_TRIANGLES);
-	glVertex2f(0.009, 0.0);
-	glVertex2f(-0.009, 0.0);
+	glVertex2f(0.009, -0.16);
+	glVertex2f(-0.009, -0.16);
 	glVertex2f(0.0, 0.6);
 	
 	glEnd();
-	Sleep(10);
+	Sleep(1000);
 	segundos -= 6.0;
 	glPopMatrix();
 	
 	//Minutos
 	glPushMatrix();
 	glRotated(minutos, 0, 0, 1);
-	glColor3f(0, 1, 0);
+	glColor3f(0.400,0.51,0.153);
 	
 	glBegin(GL_TRIANGLES);
-	glVertex2f(0.012, 0.0);
-	glVertex2f(-0.012, 0.0);
+	glVertex2f(0.012, -0.14);
+	glVertex2f(-0.012, -0.14);
 	glVertex2f(0.0, 0.5);
 	
 	glEnd();
@@ -177,11 +177,11 @@ void dibujar()
 	//horas
 	glPushMatrix();
 	glRotated(horas, 0, 0, 1);
-	glColor3f(0, 0, 1);
+	glColor3f(0.360,0,0);
 	
 	glBegin(GL_TRIANGLES);
-	glVertex2f(0.015, 0.0);
-	glVertex2f(-0.015, 0.0);
+	glVertex2f(0.012, -0.12);
+	glVertex2f(-0.012, -0.12);
 	glVertex2f(0.0, 0.4);
 	
 	glEnd();
@@ -212,30 +212,4 @@ int main(int argc, char * args[])
 	
 	glutTimerFunc(valor, tiempo, 0);
 	glutMainLoop();
-	
-	
-	/*codigo del reloj
-    int segundos = 0, minutos = 0, horas = 0;
-    bool ciclo = true;
-    while(ciclo)
-    {
-        system("cls");
-        std::cout<<horas<<":"<<minutos<<":"<<segundos<<std::endl;
-        Sleep (1000);
-        segundos ++; 
-        if(segundos == 60)
-        {
-            minutos ++;
-            segundos = 0;
-        }
-        if(minutos == 60)
-        {
-            horas ++;
-            minutos = 0;
-        }
-        if(horas == 13)
-        {
-            horas = 1;
-        }
-    }*/
 }
