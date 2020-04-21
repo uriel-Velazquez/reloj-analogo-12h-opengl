@@ -1,5 +1,6 @@
 #include <C:\freeglut\include\GL\glut.h>
 #include<math.h>
+#include<ctime>
 
 int valor = 1;
 GLfloat segundos = 0.0f;
@@ -14,6 +15,13 @@ void tiempo(int param)
 
 void iniciar()
 {
+	// Lee e inicia marcando la misma hora que el pc
+	time_t now = time(0);
+	tm * time =localtime(&now);
+	segundos = 6 * (- time->tm_sec);
+	minutos = 6 * (- time->tm_min);
+	horas = 30 * (- time->tm_hour);
+	
 	glClearColor(0, 0.20, 0.50, 1); // R,G,B,opacidad
 	
 	glLineWidth(3.f);
@@ -168,7 +176,7 @@ void dibujar()
 	
 	if(segundos == -360.0)
 	{
-		minutos -= 3.0;
+		minutos -= 6.0;
 		segundos = 0.0;
 	}
 	
@@ -204,7 +212,7 @@ int main(int argc, char * args[])
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); //modo de video
 	glutInitWindowSize(600, 600); 
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("Reloj Uriel Velazquez");
+	glutCreateWindow("RELOJ, POR: URIEL UBALDO VELAZQUEZ ZAMORA");
 	
 	iniciar();
 	
