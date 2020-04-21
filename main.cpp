@@ -1,73 +1,111 @@
 #include <C:\freeglut\include\GL\glut.h>
-#include<iostream>
-#include<windows.h>
 #include<math.h>
 
-float px = 2, py = 5, radio = 10, auxcalx, auxcaly;
-double posicion_hora = 0.0f;
+int valor = 1;
+GLfloat segundos = 0.0f;
+GLfloat minutos = 0.0f;
+GLfloat horas = 0.0f;
+
+void tiempo(int param)
+{
+	glutPostRedisplay();
+	glutTimerFunc(valor, tiempo, 0);
+}
 
 void iniciar()
 {
-	glClearColor(0.049, 0.159, 0.155, 1); // R,G,B,opacidad
+	glClearColor(0, 0.3, 0.5, 1); // R,G,B,opacidad
 	
 	glLineWidth(3.f);
+	glPointSize(5);
 	
-	gluOrtho2D(-20, 20, -20, 20); //camara (posicion, angulo, lejania)
+	glOrtho(800, 0, 600, 0, -1, 1);
 	
-	glMatrixMode(GL_MODELVIEW); //para trabajar con matrices
+	glMatrixMode(GL_MODELVIEW);
 	
-	glLoadIdentity(); // se carga la matriz
+	glLoadIdentity();
+	
 }
 
 void dibujar()
 {
-	glClear(GL_COLOR_BUFFER_BIT); //limpieza basada en el color
+	glClear(GL_COLOR_BUFFER_BIT);
+	
+	//Numeros
+	//12
+	glPushMatrix();
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//12
+	glPushMatrix();
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
 	
 	
+	//Segundos
+	glPushMatrix();
+	glRotated(segundos, 0, 0, 1);
+	glColor3f(1,0,0);
 	
-	glBegin(GL_POLYGON); //inicio
+	glBegin(GL_TRIANGLES);
+	glVertex2f(0.009, 0.0);
+	glVertex2f(-0.009, 0.0);
+	glVertex2f(0.0, 0.6);
 	
+	glEnd();
+	Sleep(10);
+	segundos -= 6.0;
+	glPopMatrix();
 	
-	//dubujando el circulo punto por punto
-	for(double i = 0.0; i < 10; i += 0.001)
-	{
-		glColor3f(0.255, 0, 0);
-		
-		auxcalx = radio * cos(i);
-		auxcaly = radio * sin(i);
-		
-		glVertex2f(auxcalx, auxcaly);
-	}
-	
-	glEnd(); //fin
-	
-	glPushMatrix(); //crear
-	glBegin(GL_LINES);
-	
-	glRotated(20, 0, 0, .5);
-	
-	//hora
-	glColor3f(1, 0, 0);
-	glVertex2f(0,8);
-	glVertex2f(0,0);
-	
-	//minutos
+	//Minutos
+	glPushMatrix();
+	glRotated(minutos, 0, 0, 1);
 	glColor3f(0, 1, 0);
-	glVertex2f(0,7);
-	glVertex2f(0,0);
 	
-	//segundos
-	glColor3f(0, 0, 1);
-	glVertex2f(0,6);
-	glVertex2f(0,0);
+	glBegin(GL_TRIANGLES);
+	glVertex2f(0.012, 0.0);
+	glVertex2f(-0.012, 0.0);
+	glVertex2f(0.0, 0.5);
 	
 	glEnd();
 	
-	glPopMatrix(); //destruir
+	if(segundos == -360.0)
+	{
+		minutos -= 3.0;
+		segundos = 0.0;
+	}
 	
-	glFlush(); //limpia pantalla (buffer)
+	glPopMatrix();
+	
+	//horas
+	glPushMatrix();
+	glRotated(horas, 0, 0, 1);
+	glColor3f(0, 0, 1);
+	
+	glBegin(GL_TRIANGLES);
+	glVertex2f(0.015, 0.0);
+	glVertex2f(-0.015, 0.0);
+	glVertex2f(0.0, 0.4);
+	
+	glEnd();
+	
+	if(minutos == -360.0)
+	{
+		horas -= 30.0;
+		minutos = 0.0;
+	}
+	
+	glPopMatrix();
+	
+	glFlush();
 }
-
 
 int main(int argc, char * args[])
 {
@@ -82,7 +120,7 @@ int main(int argc, char * args[])
 	
 	glutDisplayFunc(dibujar); //cada que dibuje se usara esa funcion
 	
-	
+	glutTimerFunc(valor, tiempo, 0);
 	glutMainLoop();
 	
 	
