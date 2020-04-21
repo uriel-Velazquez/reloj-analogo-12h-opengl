@@ -1,5 +1,4 @@
 #include <C:\freeglut\include\GL\glut.h>
-#include<iostream>
 #include<ctime>
 
 int valor = 1;
