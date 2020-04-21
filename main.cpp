@@ -16,8 +16,8 @@ void iniciar()
 {
 	glClearColor(0, 0.3, 0.5, 1); // R,G,B,opacidad
 	
-	glLineWidth(3.f);
-	glPointSize(5);
+	glLineWidth(5.f);
+	glPointSize(8);
 	
 	glOrtho(800, 0, 600, 0, -1, 1);
 	
@@ -31,23 +31,113 @@ void dibujar()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//Numeros
+	//Numeros/lineas
 	//12
 	glPushMatrix();
+	glBegin(GL_POINTS);
+	glColor3f(0.70, 0, 0);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//11
+	glPushMatrix();
+	glRotated(30, 0, 0, 1);
 	glBegin(GL_POINTS);
 	glColor3f(1, 1, 1);
 	glVertex2f(0.0, 0.63);
 	glEnd();
 	glPopMatrix();
 	
-	//12
+	//10
 	glPushMatrix();
+	glRotated(60, 0, 0, 1);
 	glBegin(GL_POINTS);
 	glColor3f(1, 1, 1);
 	glVertex2f(0.0, 0.63);
 	glEnd();
 	glPopMatrix();
 	
+	//9
+	glPushMatrix();
+	glRotated(90, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(0.70, 0, 0);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//8
+	glPushMatrix();
+	glRotated(120, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//7
+	glPushMatrix();
+	glRotated(150, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//6
+	glPushMatrix();
+	glRotated(180, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(0.70, 0, 0);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//5
+	glPushMatrix();
+	glRotated(210, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//4
+	glPushMatrix();
+	glRotated(240, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//3
+	glPushMatrix();
+	glRotated(270, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(0.70, 0, 0);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//2
+	glPushMatrix();
+	glRotated(300, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
+	
+	//1
+	glPushMatrix();
+	glRotated(330, 0, 0, 1);
+	glBegin(GL_POINTS);
+	glColor3f(1, 1, 1);
+	glVertex2f(0.0, 0.63);
+	glEnd();
+	glPopMatrix();
 	
 	//Segundos
 	glPushMatrix();
