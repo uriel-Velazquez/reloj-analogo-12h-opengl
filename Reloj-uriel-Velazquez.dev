@@ -1,7 +1,7 @@
 [Project]
-FileName=reloj-analogo.dev
-Name=reloj-analogo-freeglut
-Type=1
+FileName=Reloj-uriel-Velazquez.dev
+Name=Reloj-uriel-Velazquez
+Type=0
 Ver=2
 ObjFiles=
 Includes=
@@ -19,7 +19,7 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=reloj-analogo.exe
+OverrideOutputName=Reloj-uriel-Velazquez.exe
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
