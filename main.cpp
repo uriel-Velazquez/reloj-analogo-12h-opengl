@@ -1,5 +1,5 @@
 #include <C:\freeglut\include\GL\glut.h>
-#include<math.h>
+#include<iostream>
 #include<ctime>
 
 int valor = 1;
@@ -15,12 +15,6 @@ void tiempo(int param)
 
 void iniciar()
 {
-	// Lee e inicia marcando la misma hora que el pc
-	time_t now = time(0);
-	tm * time =localtime(&now);
-	segundos = 6 * (- time->tm_sec);
-	minutos = 6 * (- time->tm_min);
-	horas = 30 * (- time->tm_hour);
 	
 	glClearColor(0, 0.20, 0.50, 1); // R,G,B,opacidad
 	
@@ -38,6 +32,13 @@ void iniciar()
 void dibujar()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+	
+	// Lee e inicia marcando la misma hora que el pc
+	time_t now = time(0);
+	tm * time =localtime(&now);
+	segundos = 6 * (- time->tm_sec);
+	minutos = 6 * (- time->tm_min);
+	horas = 30 * (- time->tm_hour);
 	
 	//Numeros/lineas
 	//12
@@ -151,22 +152,18 @@ void dibujar()
 	glPushMatrix();
 	glRotated(segundos, 0, 0, 1);
 	glColor3f(0.255,0.51,0.360);
-	
 	glBegin(GL_TRIANGLES);
 	glVertex2f(0.009, -0.16);
 	glVertex2f(-0.009, -0.16);
 	glVertex2f(0.0, 0.6);
 	
 	glEnd();
-	Sleep(1000);
-	segundos -= 6.0;
 	glPopMatrix();
 	
 	//Minutos
 	glPushMatrix();
 	glRotated(minutos, 0, 0, 1);
 	glColor3f(0.400,0.51,0.153);
-	
 	glBegin(GL_TRIANGLES);
 	glVertex2f(0.012, -0.14);
 	glVertex2f(-0.012, -0.14);
@@ -174,31 +171,18 @@ void dibujar()
 	
 	glEnd();
 	
-	if(segundos == -360.0)
-	{
-		minutos -= 6.0;
-		segundos = 0.0;
-	}
-	
 	glPopMatrix();
 	
 	//horas
 	glPushMatrix();
 	glRotated(horas, 0, 0, 1);
 	glColor3f(0.360,0,0);
-	
 	glBegin(GL_TRIANGLES);
 	glVertex2f(0.012, -0.12);
 	glVertex2f(-0.012, -0.12);
 	glVertex2f(0.0, 0.4);
 	
 	glEnd();
-	
-	if(minutos == -360.0)
-	{
-		horas -= 30.0;
-		minutos = 0.0;
-	}
 	
 	glPopMatrix();
 	
@@ -212,7 +196,7 @@ int main(int argc, char * args[])
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); //modo de video
 	glutInitWindowSize(600, 600); 
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("RELOJ, POR: URIEL UBALDO VELAZQUEZ ZAMORA");
+	glutCreateWindow("RELOJ. POR: URIEL UBALDO VELAZQUEZ ZAMORA");
 	
 	iniciar();
 	
