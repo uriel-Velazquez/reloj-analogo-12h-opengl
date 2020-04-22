@@ -14,7 +14,6 @@ void tiempo(int param)
 
 void iniciar()
 {
-	
 	glClearColor(0.30, 0.70, 0.50, 1); // R,G,B,opacidad
 	
 	glLineWidth(1.f);
@@ -727,8 +726,8 @@ int main(int argc, char * args[])
 	glutInit(&argc, args); // Inicia glut
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Modo de video
 	glutInitWindowSize(600, 600); 
-	glutInitWindowPosition(50, 50);
-	glutCreateWindow("RELOJ. POR: URIEL UBALDO VELAZQUEZ ZAMORA");
+	glutInitWindowPosition(530, 10);
+	glutCreateWindow("https://github.com/uriel-Velazquez/reloj-analogo-12h-opengl");
 	
 	iniciar();
 	
