@@ -9,6 +9,7 @@ GLfloat horas = 0.0f;
 void tiempo(int param)
 {
 	glutPostRedisplay();
+	glutPopWindow();
 	glutTimerFunc(valor, tiempo, 0);
 }
 
@@ -725,8 +726,8 @@ int main(int argc, char * args[])
 	// Pantalla
 	glutInit(&argc, args); // Inicia glut
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Modo de video
-	glutInitWindowSize(600, 600); 
-	glutInitWindowPosition(530, 10);
+	glutInitWindowSize(200, 200); 
+	glutInitWindowPosition(1030, 0);
 	glutCreateWindow("https://github.com/uriel-Velazquez/reloj-analogo-12h-opengl");
 	
 	iniciar();
